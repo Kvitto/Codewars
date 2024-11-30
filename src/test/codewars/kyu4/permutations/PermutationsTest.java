@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.*;
 
 public class PermutationsTest {
+
     @Test
     public void example1() {
         assertEquals( new ArrayList<String>(Arrays.asList("a")),
