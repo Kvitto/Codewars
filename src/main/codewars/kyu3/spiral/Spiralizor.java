@@ -3,9 +3,19 @@ package codewars.kyu3.spiral;
 import java.util.Arrays;
 
 public class Spiralizor {
-    static int[][] qube;
+//    static int[][] qube;
 
-    public static int[][] spiralize(int size) {
+    public static int[][] spiralize(int n) {
+        int[][] a = new int[n][n];
+        for (int y = 0, c = 1; y <= n/2; y++, c = 1-c) {
+            for (int x = y; x < n -y; x++)
+                a[y][x] = a[x][n-1 -y] = a[n-1 -y][n-1 -x] = a[n-1 -x][y] = c;
+            if (y +(n%4 == 0? 1: 0) < n/2) a[y+1][y] = 1-c;
+        }
+        return a;
+    }
+
+/*    public static int[][] spiralize(int size) {
         fillZero(size);
         turnTheSpiral(0, size - 1);
         return qube;
@@ -31,6 +41,6 @@ public class Spiralizor {
         for (int[] x : qube){
             Arrays.fill(x, 0);
         }
-    }
+    }*/
 
 }
